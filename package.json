@@ -1,0 +1,26 @@
+{
+  "name": "zebra-web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@linaria/core": "^8.2.0",
+    "@linaria/react": "^8.2.0",
+    "@wyw-in-js/nextjs": "^2.4.2",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,86 +1,76 @@
 import { css } from "@linaria/core";
-import { colors, fontFamily, spacing, borderRadius } from "@/app/tokens";
+import { colors, borderRadius, fontWeight, breakpoints } from "@/app/tokens";
 
 export const section = css`
-  padding: ${spacing.xxxl} ${spacing.xl};
-  max-width: 1920px;
-  margin: 0 auto;
+  padding: 6.3rem 0 0;
 `;
 
 export const sectionTitle = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 900;
-  font-size: clamp(24px, 3vw, 40px);
-  line-height: 1.15;
-  color: ${colors.text};
-  margin-bottom: ${spacing.xl};
+    font-weight: ${fontWeight.black};
+    font-size: 2.8rem;
+    line-height: 1.25;
+    margin-bottom: 3rem;
+    @media (min-width: 768px) {
+      font-size: 3.2rem;
+      margin-bottom: 3.2rem;
+    }
 `;
 
 export const cardGrid = css`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: ${spacing.xl};
-
-  @media (max-width: 1023px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: 767px) {
-    grid-template-columns: 1fr;
-  }
+    display: grid;
+    gap: 3.2rem;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
 `;
 
-export const visitCard = css`
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: ${borderRadius.sm};
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease;
+// Card--page layout
+export const card = css`
+    display: flex;
+    flex-direction: column;
+    border-radius: ${borderRadius.sm};
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: ${colors.tagBg};
+
+    &:hover {
+        background-color: ${colors.page};
+        transform: translateY(-4px);
+    }
 `;
 
-export const visitCardHover = css`
-  &:hover {
-    transform: scale(1.02);
-  }
+export const cardContent = css`
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
 `;
 
-export const visitCardImage = css`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+export const cardHeading = css`
+    font-weight: ${fontWeight.black};
+    font-size: 2.4rem;
+    line-height: 1.25;
+    margin-bottom: 2rem;
+    @media (min-width: ${breakpoints.md}) {
+        line-height: 1.3;
+    }
 `;
 
-export const visitCardOverlay = css`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 60%);
+export const cardDescription = css`
+    font-weight: ${fontWeight.book};
+    line-height: 1.5;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
 `;
 
-export const visitCardBody = css`
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: ${spacing.lg};
-  color: ${colors.white};
-`;
-
-export const visitCardTitle = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.25;
-  color: ${colors.white};
-  margin-bottom: 4px;
-`;
-
-export const visitCardDesc = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.8);
+export const cardImage = css`
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: ${borderRadius.sm};
+    overflow: hidden;
+    flex-shrink: 0;
 `;

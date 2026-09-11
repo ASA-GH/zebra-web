@@ -3,7 +3,6 @@ import { colors, fontFamily, spacing } from "@/app/tokens";
 
 export const footer = css`
   background: ${colors.footer};
-  color: ${colors.textOnBlack};
   padding: ${spacing.xxxl} ${spacing.xl} ${spacing.xl};
 `;
 
@@ -12,51 +11,41 @@ export const footerInner = css`
   margin: 0 auto;
 `;
 
-export const ack = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 400;
-  font-size: 13px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
-  margin-bottom: ${spacing.xxl};
-`;
-
-export const linksGrid = css`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: ${spacing.xl};
-  margin-bottom: ${spacing.xxl};
-`;
-
-export const linkCol = css`
+export const footerNav = css`
   display: flex;
-  flex-direction: column;
-  gap: ${spacing.sm};
-`;
-
-export const linkColTitle = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 700;
-  font-size: 13px;
-  line-height: 1.2;
-  color: ${colors.white};
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: ${spacing.sm};
+  flex-wrap: wrap;
+  gap: ${spacing.md} ${spacing.xl};
+  margin-bottom: ${spacing.xl};
 `;
 
 export const link = css`
   font-family: ${fontFamily.primary};
   font-weight: 400;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
-  color: rgba(255, 255, 255, 0.7);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s ease;
 
   &:hover {
-    color: ${colors.white};
+    opacity: 0.8;
+  }
+`;
+
+export const newsletterSection = css`
+  margin-bottom: ${spacing.lg};
+`;
+
+export const newsletterLink = css`
+  font-family: ${fontFamily.primary};
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  &:hover {
+    opacity: 0.8;
   }
 `;
 
@@ -72,7 +61,6 @@ export const socialLink = css`
   justify-content: center;
   width: 40px;
   height: 40px;
-  color: ${colors.white};
   opacity: 0.7;
   transition: opacity 0.2s ease;
 
@@ -81,26 +69,44 @@ export const socialLink = css`
   }
 `;
 
-export const bottom = css`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: ${spacing.md};
-  padding-top: ${spacing.lg};
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+export const socialIcon = css`
+  width: 24px;
+  height: 24px;
 `;
 
-export const bottomLinks = css`
+export const address = css`
+  font-family: ${fontFamily.primary};
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 400px;
+  margin-bottom: ${spacing.xxl};
+`;
+
+export const phone = css`
+  font-family: ${fontFamily.primary};
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
+export const bottomNav = css`
   display: flex;
   gap: ${spacing.lg};
-  flex-wrap: wrap;
+  padding-top: ${spacing.lg};
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 export const bottomLink = css`
   font-family: ${fontFamily.primary};
   font-weight: 400;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
@@ -109,12 +115,4 @@ export const bottomLink = css`
   &:hover {
     color: rgba(255, 255, 255, 0.8);
   }
-`;
-
-export const copyright = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 1.4;
-  color: rgba(255, 255, 255, 0.5);
 `;

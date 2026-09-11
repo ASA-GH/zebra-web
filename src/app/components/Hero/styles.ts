@@ -1,34 +1,45 @@
 import { css } from "@linaria/core";
-import { colors, fontFamily, spacing } from "@/app/tokens";
+import { breakpoints, colors, fontFamily, spacing } from "@/app/tokens";
 
 export const hero = css`
-  position: relative;
   width: 100%;
-  min-height: 80vh;
-  max-height: 900px;
   overflow: hidden;
   background: ${colors.black};
 `;
 
-export const heroMedia = css`
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  opacity: 0.7;
+export const heroVideo = css`
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    //height: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 12rem;
+    object-fit: cover;
+    object-position: center;
+    //opacity: 0.7;
+    @media (min-width: ${breakpoints.lg}) {
+        min-height: 48rem;
+        aspect-ratio: 3 / 1;
+    }
 `;
 
-export const heroOverlay = css`
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.1) 40%,
-    rgba(0, 0, 0, 0.6) 100%
-  );
+export const heroContainer = css`
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 12rem;
+    @media (min-width: ${breakpoints.lg}) {
+        min-height: 48rem;
+        aspect-ratio: 3 / 1;
+    }
+  //position: absolute;
+  //inset: 0;
+  //background: linear-gradient(
+  //  to bottom,
+  //  rgba(0, 0, 0, 0.3) 0%,
+  //  rgba(0, 0, 0, 0.1) 40%,
+  //  rgba(0, 0, 0, 0.6) 100%
+  //);
 `;
 
 export const heroContent = css`
@@ -98,28 +109,28 @@ export const heroCta = css`
 `;
 
 // Responsive
-const md = 768;
+// const md = 768;
 
-export const responsive = css`
-  @media (max-width: ${md - 1}px) {
-    ${hero} {
-      min-height: 60vh;
-      max-height: 500px;
-    }
-
-    ${heroContent} {
-      padding: ${spacing.xl} ${spacing.lg};
-    }
-  }
-
-  @media (max-width: 480px) {
-    ${hero} {
-      min-height: 50vh;
-      max-height: 400px;
-    }
-
-    ${heroContent} {
-      padding: ${spacing.lg} ${spacing.md};
-    }
-  }
-`;
+// export const responsive = css`
+//   @media (max-width: ${md - 1}px) {
+//     ${hero} {
+//       min-height: 60vh;
+//       max-height: 500px;
+//     }
+//
+//     ${heroContent} {
+//       padding: ${spacing.xl} ${spacing.lg};
+//     }
+//   }
+//
+//   @media (max-width: 480px) {
+//     ${hero} {
+//       min-height: 50vh;
+//       max-height: 400px;
+//     }
+//
+//     ${heroContent} {
+//       padding: ${spacing.lg} ${spacing.md};
+//     }
+//   }
+// `;

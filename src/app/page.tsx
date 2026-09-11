@@ -1,11 +1,11 @@
 import { Header } from "@/app/components/Header";
 import { Hero } from "@/app/components/Hero";
 import { HighlightsSection } from "@/app/components/HighlightsSection";
-import { ToursSection } from "@/app/components/ToursSection";
-import { StreamSection } from "@/app/components/StreamSection";
 import { VisitSection } from "@/app/components/VisitSection";
 import { ReadListenSection } from "@/app/components/ReadListenSection";
+import { ResidentCompanies } from "@/app/components/ResidentCompanies";
 import { Footer } from "@/app/components/Footer";
+import { BlackSection } from "@/app/components/BlackSection";
 
 export default function Home() {
   return (
@@ -14,10 +14,10 @@ export default function Home() {
       <main>
         <Hero />
         <HighlightsSection />
-        <ToursSection />
-        <StreamSection />
         <VisitSection />
         <ReadListenSection />
+        <BlackSection />
+        <ResidentCompanies />
       </main>
       <Footer />
     </>

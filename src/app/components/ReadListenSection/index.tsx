@@ -1,55 +1,39 @@
-"use client";
-
 import Link from "next/link";
-import Image from "next/image";
-import streamThumb from "@/app/assets/styles-16x9/Stream-Free-Cameron-Winter-Thumbnails_3840_x_2160.jpg.webp";
-import readImg from "@/app/assets/styles-16x9/IATH-hero-web-2560x1440.jpg.webp";
-import listenImg from "@/app/assets/styles-16x9/stream-marlon-williams-16-9.jpg.webp";
+import { deepDiveCards } from "@/app/components/HighlightsSection/data";
 import {
   section,
   sectionTitle,
   cardGrid,
-  deepDiveCard,
-  deepDiveCardHover,
-  deepDiveCardImage,
-  deepDiveCardOverlay,
-  deepDiveCardBody,
-  deepDiveCardTitle,
-  deepDiveCardDesc,
+  card,
+  cardContent,
+  cardHeading,
+  cardDescription,
+  cardImage,
 } from "./styles";
-
-interface DeepDiveItem {
-  title: string;
-  desc: string;
-  href: string;
-  image: unknown;
-}
-
-const ITEMS: DeepDiveItem[] = [
-  { title: "Stream", desc: "Virtual front row — livestreams, on-demand content and originals.", href: "/stream", image: streamThumb },
-  { title: "Read", desc: "Stories, community and behind-the-scenes from productions.", href: "/read", image: readImg },
-  { title: "Listen", desc: "Podcasts and playlists from the Opera House.", href: "/listen", image: listenImg },
-];
+import { Container } from "@/app/components/ui/Container";
+import { ReadListenImage } from "@/app/components/ReadListenSection/ReadListenImage";
 
 export function ReadListenSection() {
   return (
     <section className={section}>
-      <h2 className={sectionTitle}>Stream, read &amp; listen</h2>
-      <div className={cardGrid}>
-        {ITEMS.map((item) => {
-          const imgSrc = typeof item.image === "string" ? item.image : (item.image as { src: string }).src;
-          return (
-            <Link key={item.title} href={item.href} className={`${deepDiveCard} ${deepDiveCardHover}`}>
-              <Image src={imgSrc} alt={item.title} className={deepDiveCardImage} fill />
-              <div className={deepDiveCardOverlay} />
-              <div className={deepDiveCardBody}>
-                <h3 className={deepDiveCardTitle}>{item.title}</h3>
-                <p className={deepDiveCardDesc}>{item.desc}</p>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
+      <Container>
+        <h2 className={sectionTitle}>Stream, read & listen</h2>
+        <ul className={cardGrid}>
+          {deepDiveCards.map(({ title, cardName, description }) => (
+            <li key={title} className={card}>
+              <Link href="/">
+                <div className={cardImage}>
+                  <ReadListenImage title={title} cardName={cardName}/>
+                </div>
+                <div className={cardContent}>
+                  <h3 className={cardHeading}>{title}</h3>
+                  <p className={cardDescription}>{description}</p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Container>
     </section>
   );
 }

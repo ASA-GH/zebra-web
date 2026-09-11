@@ -21,13 +21,15 @@ export const colors = {
 
   // Backgrounds
   page: '#eceae6',
-  header: '#000',
-  footer: '#000',
+  header: '#fff',
+  footer: '#eceae6',
   row: '#f4f4f4',
   card: '#fff',
   cardHover: '#e9e6e6',
   heroOverlay: 'rgba(0,0,0,0.8)',
   heroOverlayDeep: 'rgba(0,0,0,0.9)',
+  findMoreHover: 'rgba(0,0,0,0.1)',
+  platinum: "#d4d3cf",
 
   // Text
   text: '#000',
@@ -55,6 +57,20 @@ export const colors = {
 
   // Links
   linkVisited: '#784f9f',
+  forestGreenw: "#466848",
+  babyBlue: "#C5E7FF",
+  vibrantCoral: "#FF8366",
+  sageGreen: "#DAE9D3",
+  eggplant: "#3D1D53",
+  fuchsia: "#FF76EC",
+  deepRose: "#DC6281",
+  amber: "#FFAA18",
+  mahogany: "#742C0B",
+  palePink: "#FFAEC0",
+  palePeriwinkle: "#B9C0DE",
+  deepDerry: "#852146",
+  lightMustard: "#FFD464",
+  palePeach: "#FFBB94"
 } as const;
 
 // ── Typography ───────────────────────────────────────────────

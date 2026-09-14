@@ -2,7 +2,7 @@ import { css } from "@linaria/core";
 import { colors, borderRadius, fontWeight, breakpoints } from "@/app/tokens";
 
 export const section = css`
-    padding: 5.7rem 0 4rem;
+    margin: 0 0 4rem;
 `;
 
 export const sectionTitle = css`

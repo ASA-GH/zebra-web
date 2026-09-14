@@ -5,6 +5,7 @@ export const hero = css`
   width: 100%;
   overflow: hidden;
   background: ${colors.black};
+  margin: 0 0 3.2rem;
 `;
 
 export const heroVideo = css`

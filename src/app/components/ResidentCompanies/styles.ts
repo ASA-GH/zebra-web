@@ -1,91 +1,82 @@
 import { css } from "@linaria/core";
-import { colors, fontFamily, spacing } from "@/app/tokens";
+import { breakpoints, colors, fontWeight } from "@/app/tokens";
 
 export const section = css`
-  padding: ${spacing.xxxl} ${spacing.xl};
-  max-width: 1920px;
   margin: 0 auto;
 `;
 
-export const sectionInner = css`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 export const sectionTitle = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 900;
-  font-size: clamp(20px, 3vw, 32px);
-  line-height: 1.15;
-  color: ${colors.text};
-  text-align: center;
-  margin-bottom: ${spacing.xl};
+    font-size: 2.8rem;
+    line-height: 1.25;
+    margin-bottom: 3.2rem;
+    font-weight: ${fontWeight.black};
+    color: ${colors.text};
+    text-align: center;
+    padding: 0 1.6rem;
+    @media (min-width: ${breakpoints.md}) {
+        font-size: 3.2rem;
+        max-width: 83.3333%;
+    }
 `;
 
-export const logoGrid = css`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: ${spacing.xl};
+export const logoBlock = css`
+    && {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0 auto 3.2rem;
+    }
+`;
+
+export const logoList = css`
+  display: flex;
+    flex-wrap: wrap;
   align-items: center;
   justify-items: center;
-  width: 100%;
-  margin-bottom: ${spacing.xxl};
-
-  @media (max-width: 767px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: ${spacing.lg};
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    grid-template-columns: repeat(4, 1fr);
+    padding: 0 1.6rem;
+  @media (min-width: ${breakpoints.md}) {
+      max-width: 83.3333%;
   }
 `;
 
 export const logoItem = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    height: auto;
+    width: 50%;
+    padding: 1.6rem;
+    @media (max-width: ${breakpoints.sm}) {
+        padding: 0.2rem;
+    }
+    @media (min-width: ${breakpoints.md}) {
+        width: 25%;
+    }
 `;
 
 export const logoImg = css`
-  max-width: 160px;
-  height: auto;
-  transition: opacity 0.2s ease;
-
-  @media (max-width: 767px) {
-    max-width: 120px;
-  }
-`;
-
-export const logoLink = css`
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
-
-  &:hover ${logoImg} {
-    opacity: 0.7;
-  }
+  height: auto;
+  aspect-ratio: 16 / 9;
 `;
 
-export const partnersText = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.6;
-  color: ${colors.textLowlight};
-  text-align: center;
+export const partnersBlock = css`
+    && {
+        margin: 0 auto 4rem;
+    }
+`;
+
+export const partners = css`
+    line-height: 1.5;
+    margin: 0;
+    text-align: center;
 `;
 
 export const partnersLink = css`
-  font-family: ${fontFamily.primary};
-  font-weight: 700;
-  color: ${colors.text};
-  text-decoration: underline;
-  text-underline-offset: 3px;
+    font-weight: ${fontWeight.bold};
+    line-height: 1.5;
+    padding: 0 2px;
+    text-decoration: underline;
 
-  &:hover {
-    color: ${colors.primary};
-  }
+    &:hover {
+      background-color: ${colors.findMoreHover};
+    }
 `;

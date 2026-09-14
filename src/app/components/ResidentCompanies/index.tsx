@@ -1,52 +1,61 @@
 "use client";
 
 import Link from "next/link";
-import aco from "@/app/assets/partners/ACO_Brandmark_Wrodmark_Attached_Black_Small_1_(1).svg";
-import australianBallet from "@/app/assets/partners/the-australian-ballet.svg";
-import bangarra from "@/app/assets/partners/bangarra-dance-theatre.svg";
-import bellShakespeare from "@/app/assets/partners/bell-shakespeare.svg";
-import operaAustralia from "@/app/assets/partners/opera-australia.svg";
-import sydneyPhil from "@/app/assets/partners/sydney-phillharmonic-orchestra.svg";
-import sydneySymphony from "@/app/assets/partners/sydney-symphony-orchestra.svg";
-import sydneyTheatreCompany from "@/app/assets/partners/SydneyTheatreCompany_Wordmark_Primary_BLACK_1.svg";
 import {
   section,
-  sectionInner,
   sectionTitle,
-  logoGrid,
+  logoList,
   logoItem,
-  logoLink,
   logoImg,
-  partnersText,
-  partnersLink,
+  partners,
+  partnersLink, logoBlock, partnersBlock,
 } from "./styles";
+import { Container } from "@/app/components/ui/Container";
 
 const PARTNERS = [
-  { name: "Australian Chamber Orchestra", href: "/australian-chamber-orchestra", image: aco },
-  { name: "The Australian Ballet", href: "/the-australian-ballet", image: australianBallet },
-  { name: "Bangarra Dance Theatre", href: "/bangarra-dance-theatre", image: bangarra },
-  { name: "Bell Shakespeare", href: "/bell-shakespeare", image: bellShakespeare },
-  { name: "Opera Australia", href: "/opera-australia", image: operaAustralia },
-  { name: "Sydney Philharmonia Choirs", href: "/sydney-philharmonia-choirs", image: sydneyPhil },
-  { name: "Sydney Symphony Orchestra", href: "/sydney-symphony-orchestra", image: sydneySymphony },
-  { name: "Sydney Theatre Company", href: "/sydney-theatre-company", image: sydneyTheatreCompany },
+  {
+    name: "Australian Chamber Orchestra",
+    href: "/australian-chamber-orchestra",
+    image: "/partners/ACO_Brandmark_Wrodmark_Attached_Black_Small_1.svg"
+  },
+  { name: "The Australian Ballet", href: "/the-australian-ballet", image: "/partners/the-australian-ballet.svg" },
+  { name: "Bangarra Dance Theatre", href: "/bangarra-dance-theatre", image: "/partners/bangarra-dance-theatre.svg" },
+  { name: "Bell Shakespeare", href: "/bell-shakespeare", image: "/partners/bell-shakespeare.svg" },
+  { name: "Opera Australia", href: "/opera-australia", image: "/partners/opera-australia.svg" },
+  {
+    name: "Sydney Philharmonia Choirs",
+    href: "/sydney-philharmonia-choirs",
+    image: "/partners/sydney-phillharmonic-orchestra.svg"
+  },
+  {
+    name: "Sydney Symphony Orchestra",
+    href: "/sydney-symphony-orchestra",
+    image: "/partners/sydney-symphony-orchestra.svg"
+  },
+  {
+    name: "Sydney Theatre Company",
+    href: "/sydney-theatre-company",
+    image: "/partners/SydneyTheatreCompany_Wordmark_Primary_BLACK_1.svg"
+  },
 ];
 
 export function ResidentCompanies() {
   return (
     <section className={section}>
-      <div className={sectionInner}>
+      <Container customClass={logoBlock}>
         <h2 className={sectionTitle}>The Sydney Opera House is proud home to:</h2>
-        <div className={logoGrid}>
+        <ul className={logoList}>
           {PARTNERS.map((partner) => (
-            <div key={partner.name} className={logoItem}>
-              <Link href={partner.href} className={logoLink}>
-                <img src={partner.image} alt={partner.name} className={logoImg} />
+            <li key={partner.name} className={logoItem}>
+              <Link href={partner.href}>
+                <img src={partner.image} alt={partner.name} className={logoImg}/>
               </Link>
-            </div>
+            </li>
           ))}
-        </div>
-        <p className={partnersText}>
+        </ul>
+      </Container>
+      <Container customClass={partnersBlock}>
+        <p className={partners}>
           The Sydney Opera House thanks its family of{" "}
           <Link href="/about-us/our-partners" className={partnersLink}>
             Corporate Partners
@@ -57,7 +66,7 @@ export function ResidentCompanies() {
           </Link>{" "}
           for their support.
         </p>
-      </div>
+      </Container>
     </section>
   );
 }
